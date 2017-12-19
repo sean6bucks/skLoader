@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/Spinner.css';
+
 const spinnerClass = ( props ) => {
 	let class_name = 'loader__spinner';
 

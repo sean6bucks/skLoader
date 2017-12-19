@@ -1,0 +1,70 @@
+
+/*=== Buttons ===*/
+
+.loader__buttons {
+	padding: 15px 5px;
+	border-top: 1px solid #d6d6d6;
+}
+.loader__buttons:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.button {
+	display: inline-block;
+	border: 1px solid;
+	border-radius: 20px;
+	padding: 10px 0;
+	font-size: 18px;
+	margin: 0 2%;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	transition: border .1s ease, background .1s ease, color .1s ease;
+}
+.button.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+.transfer-button,
+.cancel-button {
+	color: #fff
+}
+
+.transfer-button {
+	background-color: #30aeff;
+	border-color: #30aeff;
+	width: 96%;
+}
+.transfer-button:hover {
+	background: #2999e2;
+	border-color: #2999e2;
+}
+
+.pause-button, .cancel-button {
+	width: 46%;
+}
+
+.pause-button {
+	border-color: #999;
+	color: #999;
+}
+.pause-button:hover {
+	background: #f8f8f8;
+}
+.pause-button:active {
+	backround: #999;
+	color: #fff;
+}
+
+.cancel-button {
+	border-color: #f05757;
+	background-color: #f05757;
+}
+.cancel-button:hover {
+	border-color: #da4747;
+	background-color: #da4747;
+}

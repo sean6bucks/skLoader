@@ -1,32 +1,4 @@
 
-/*=== TYPE ===*/
-
-h1, h4 {
-	margin: 10px auto;
-}
-
-/*=== LAYOUT ===*/
-
-#sk-loader {
-	position: relative;
-	width: 100%;
-}
-
-.header {
-	text-align: center;
-	padding: 20px;
-	color: #000;
-}
-
-.loader {
-	margin: 15px auto;
-	padding: 5px 0;
-	width: 250px;
-	border-radius: 10px;
-	background: #fff;
-	box-shadow: 0px 0px 10px 0px rgba( 0,0,0,0.25 );
-}
-
 /*=== Spinner ===*/
 
 .loader__spinner {
@@ -45,13 +17,13 @@ h1, h4 {
 	animation: transferSpin 2s linear 0s infinite
 }
 
-.spinner-active.spinner-paused .loader__spinner--svg {
+.spinner-active.spinner-paused .loader__spinner--svg,
+.spinner-active.spinner-cancelled .loader__spinner--svg {
 	animation-play-state: paused;
 }
 
-.spinner-cancelled .loader__spinner--svg {
+.spinner-active.spinner-cancelled .loader__spinner--svg {
 	opacity: 1;
-	animation-direction: reverse;
 }
 
 .spinner-completed .loader__spinner--svg {
@@ -129,74 +101,4 @@ h1, h4 {
  	100% {
 		stroke-dashoffset: 900;
 	}
-}
-
-/*=== Buttons ===*/
-
-.loader__buttons {
-	padding: 15px 5px;
-	border-top: 1px solid #d6d6d6;
-}
-.loader__buttons:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.button {
-	display: inline-block;
-	border: 1px solid;
-	border-radius: 20px;
-	padding: 10px 0;
-	font-size: 18px;
-	margin: 0 2%;
-	float: left;
-	text-align: center;
-	cursor: pointer;
-	transition: border .1s ease, background .1s ease, color .1s ease;
-}
-.button.disabled {
-	opacity: 0.5;
-	pointer-events: none;
-	cursor: not-allowed;
-}
-
-.transfer-button,
-.cancel-button {
-	color: #fff
-}
-
-.transfer-button {
-	background-color: #30aeff;
-	border-color: #30aeff;
-	width: 96%;
-}
-.transfer-button:hover {
-	background: #2999e2;
-	border-color: #2999e2;
-}
-
-.pause-button, .cancel-button {
-	width: 46%;
-}
-
-.pause-button {
-	border-color: #999;
-	color: #999;
-}
-.pause-button:hover {
-	background: #f8f8f8;
-}
-.pause-button:active {
-	backround: #999;
-	color: #fff;
-}
-
-.cancel-button {
-	border-color: #f05757;
-	background-color: #f05757;
-}
-.cancel-button:hover {
-	border-color: #da4747;
-	background-color: #da4747;
 }

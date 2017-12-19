@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/Buttons.css';
+
 export const Buttons = (props) => {
 	const buttonClick = props.buttonClick,
 		state = props.transferState;

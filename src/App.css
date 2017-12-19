@@ -1,28 +1,131 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+	background: #c7ffee;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+/*=== TYPE ===*/
+
+h1, h4 {
+	margin: 10px auto;
 }
 
-.App-title {
-  font-size: 1.5em;
+/*=== LAYOUT ===*/
+
+#sk-loader {
+	position: relative;
+	width: 100%;
 }
 
-.App-intro {
-  font-size: large;
+.header {
+	text-align: center;
+	padding: 20px;
+	color: #000;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/*=== LOADER PANEL ===*/
+
+.loader {
+	margin: 15px auto;
+	padding: 5px 0;
+	width: 250px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0px 0px 10px 0px rgba( 0,0,0,0.25 );
+}
+
+/* Spinner */
+.loader__spinner {
+	position: relative;
+	display: block;
+	width: 150px;
+	margin: 30px auto 40px auto;
+}
+
+.loader__spinner--svg {
+	display: block;
+	border-radius: 50%;
+}
+
+.loader__spinner--svg {
+	animation: transferSpin 2s linear 0s infinite
+}
+
+@keyframes transferSpin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* % Text */
+
+.loader__spinner--percent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+	margin-left: 10px;
+	width: 100%;
+	font-size: 60px;
+	line-height: 1;
+	text-align: center;
+	letter-spacing: -2px;
+}
+.loader__spinner--percent-icon {
+	display: inline-block;
+	margin: 10px 0 0 3px;
+	font-size: 18px;
+	vertical-align: text-top;
+	opacity: 0.5;
+}
+
+/* Buttons */
+
+.loader__buttons {
+	padding: 15px 5px;
+	border-top: 1px solid #d6d6d6;
+}
+.loader__buttons:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.button {
+	display: inline-block;
+	border: 1px solid;
+	border-radius: 20px;
+	padding: 10px 0;
+	font-size: 18px;
+	margin: 0 2%;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+}
+
+.transfer-button {
+	background-color: #30aeff;
+	border-color: #30aeff;
+	width: 96%;
+	color: #fff;
+}
+
+.transfer-button,
+.cancel-button {
+	color: #fff
+}
+
+.pause-button, .cancel-button {
+	width: 46%;
+}
+
+.pause-button {
+	border-color: #999;
+	color: #999;
+}
+
+.cancel-button {
+	border-color: #f05757;
+	background-color: #f05757;
 }

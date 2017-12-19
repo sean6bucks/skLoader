@@ -14,6 +14,8 @@ export class Loader extends Component {
 			transferState: 'inactive'
 		};
 
+		this.setTransferState = this.setTransferState.bind(this);
+		this.setPercentage = this.setPercentage.bind(this);
 		this.startTransfer = this.startTransfer.bind(this);
 		this.pauseTransfer = this.pauseTransfer.bind(this);
 		this.cancelTransfer = this.cancelTransfer.bind(this);
@@ -21,12 +23,22 @@ export class Loader extends Component {
 		this.completeTransfer = this.completeTransfer.bind(this);
 	}
 
+	setTransferState( state ) {
+		this.setState({
+			transferState: state
+		});
+	}
+	setPercentage( percentage ) {
+		this.setState({
+			percentage: percentage
+		});
+	}
+
 	startTransfer() {
         // FALLBACK TO MAKE SURE INTERVAL IS CLEAR
 		clearInterval( percent_increase );
 
         // IF RE-TRANSFERING > RESET VALUES AND RE-RUN START
-		console.log(this.state.transferState);
 		if ( this.state.transferState === 'completed' ) {
 				this.setState({
 					transferState: 'inactive',
@@ -46,16 +58,12 @@ export class Loader extends Component {
 					this.completeTransfer();
 				} else {
 					let percentage = this.state.percentage + 1;
-					this.setState({
-						percentage: percentage
-					});
+					this.setPercentage( percentage );
 				}
-			}, 50 );
+			}, 150 );
 
 	        // SET TRANSFER STATE TO ACTIVE
-			this.setState({
-				transferState: 'active'
-			});
+			this.setTransferState('active');
 		}
 	}
 
@@ -70,9 +78,7 @@ export class Loader extends Component {
 			state = 'paused'
 		}
         // TOGGLE PAUSED STATE
-		this.setState({
-			transferState: state
-		});
+		this.setTransferState(state);
 	}
 
 	cancelTransfer() {
@@ -83,19 +89,15 @@ export class Loader extends Component {
 
 
 		// UPDATE STATE TO CANCELLED
-		this.setState({
-			transferState: 'cancelled'
-		});
+		this.setTransferState('cancelled');
 
 		// STATE RESET ONCE PERCENT HITS 0
 		const resetTransfer = () => {
 			clearInterval( percent_decrease );
 			// RESET STATE VALUES
-			this.setState({
-				transferState: 'inactive'
-			});
+			this.setTransferState('inactive');
 		};
-		
+
         // START DECREASE INTERVAL FOR UI ANIMATION
 		const percent_decrease = setInterval( () => {
             // AT ZERO RESET STATE
@@ -104,11 +106,9 @@ export class Loader extends Component {
             // ELSE DECREASE PERCENTAGE
 			} else {
 				let percentage = this.state.percentage - 1;
-				this.setState({
-					percentage: percentage
-				});
+				this.setPercentage( percentage );
 			}
-		}, 25 );
+		}, 20 );
 	}
 
 	buttonClick(action) {
@@ -118,9 +118,7 @@ export class Loader extends Component {
 	}
 
 	completeTransfer() {
-		this.setState({
-			transferState: 'completed'
-		});
+		this.setTransferState('completed');
 	}
 
 	render() {

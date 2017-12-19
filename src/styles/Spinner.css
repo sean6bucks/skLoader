@@ -37,7 +37,6 @@
 
 .loader__spinner--svg-foreground {
 	opacity: 0;
-	transition: all .2s ease;
 }
 .spinner-active .loader__spinner--svg-foreground,
 .spinner-cancelled .loader__spinner--svg-foreground,

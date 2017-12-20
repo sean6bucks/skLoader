@@ -1,4 +1,4 @@
-#S.K. Loader
+# S.K. Loader
 #### React Loader UI Component
 This project is a simple loading component to show progress of an upload. It was built in React using ES6.
 
